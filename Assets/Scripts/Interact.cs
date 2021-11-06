@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Interact : MonoBehaviour
 {
+    [SerializeField] private Camera mainCam;
+    [SerializeField] private float range;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,12 +18,18 @@ public class Interact : MonoBehaviour
         
     }
 
-    private void OnTriggerStay(Collider other)
+    private void FixedUpdate()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        RaycastHit hit;
+
+        if(Physics.Raycast(mainCam.transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
         {
-            transform.parent.gameObject.SetActive(false);
+            Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
+            if (hit.collider.gameObject.tag == "Interactable" && Input.GetKeyDown(KeyCode.E))
+                hit.collider.gameObject.SetActive(false);
         }
+        else
+            Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * range, Color.red);
 
     }
 
