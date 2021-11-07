@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private DayNightCycle dayNightCycleScript;
     [SerializeField] private GameObject player;
     [SerializeField] private Camera nightCamera;
+    [SerializeField] private GameObject bottle;
+    [SerializeField] private GameObject emptyBottle;
     private Vector3 nightCamOriginalPosition;
     private Vector3 playerCamOriginalPosition;
     private Quaternion nightCamOriginalRotation;
@@ -26,9 +28,13 @@ public class GameManager : MonoBehaviour
 
     private bool nightTime;
 
+    private GameObject interactText;
+
     // Start is called before the first frame update
     void Start()
     {
+        interactText = GameObject.Find("InteractText");
+        Time.timeScale = 1;
         currentDayData = dayData[0];
         currentObjective = currentDayData.objectives[objectiveIndex];
         nightTime = false;
@@ -120,6 +126,7 @@ public class GameManager : MonoBehaviour
         nightTime = true;
         player.SetActive(false);
         nightCamera.gameObject.SetActive(true);
+        interactText.SetActive(false);
 
         dayNightCycleScript.dayTime /= dayTimeSpeedUp;
         dayNightCycleScript.Sunrise += DayNightCycleScript_Sunrise;
@@ -130,6 +137,10 @@ public class GameManager : MonoBehaviour
         dayNightCycleScript.dayTime *= dayTimeSpeedUp;
         NextDay();
         nightTime = false;
+
+        bottle.SetActive(true);
+        emptyBottle.SetActive(true);
+        interactText.SetActive(true);
 
         dayNightCycleScript.Sunrise -= DayNightCycleScript_Sunrise;
     }

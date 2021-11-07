@@ -12,9 +12,11 @@ public class DayNightCycle : MonoBehaviour
 
     public event System.Action Sunrise;
 
+    public int dayCycles;
+
     private void Start()
     {
-        currentAngle = 30;
+        currentAngle = 60;
         previousAngle = currentAngle;
         sun = transform.GetChild(0).GetChild(0).gameObject;
     }
@@ -27,9 +29,47 @@ public class DayNightCycle : MonoBehaviour
         currentAngle = (currentAngle + angleStep) % 360.0f;
         sun.GetComponent<Light>().intensity = currentAngle <= 190 ? 1 : 0.01f;
 
-        if (previousAngle < 30 && currentAngle >= 30) Sunrise?.Invoke();
+        // Player wakes
+        if (previousAngle < 60 && currentAngle >= 60)
+        {
+            dayCycles--;
+            if (dayCycles <= 0)
+            {
+                dayCycles = 0;
+                Sunrise?.Invoke();
+                RenderSettings.ambientIntensity = 1;
+            }
+        }
 
-        transform.rotation = Quaternion.AngleAxis(currentAngle, transform.right);
+        // Exact sunrise
+        if (previousAngle < 340 && currentAngle >= 340)
+        {
+            RenderSettings.ambientIntensity = 0;
+            StopAllCoroutines();
+            StartCoroutine(SetAmbientOverTime(0, 1));
+        }
+        // Exact sunset
+        if (previousAngle < 190 && currentAngle >= 190)
+        {
+            RenderSettings.ambientIntensity = 1;
+            StopAllCoroutines();
+            StartCoroutine(SetAmbientOverTime(0, -1));
+        }
+
+        transform.localRotation = Quaternion.AngleAxis(currentAngle, transform.right);
         previousAngle = currentAngle;
+    }
+
+    private float ambientReturnTime = 1.5f;
+    private int ambientReturnIterations = 100;
+    IEnumerator SetAmbientOverTime(int iteration, float dir)
+    {
+        RenderSettings.ambientIntensity += dir / ambientReturnIterations;
+        iteration++;
+        yield return new WaitForSeconds(ambientReturnTime / ambientReturnIterations);
+        if (iteration < ambientReturnIterations)
+        {
+            StartCoroutine(SetAmbientOverTime(iteration, dir));
+        }
     }
 }

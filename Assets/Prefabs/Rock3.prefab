@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 6342449096857720558}
   - component: {fileID: 4278201777569136028}
   - component: {fileID: 8154779065240829958}
+  - component: {fileID: -4445588442502511881}
   m_Layer: 0
   m_Name: Rock3
-  m_TagString: Untagged
+  m_TagString: Rock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,3 +97,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: d284955d54db6e1428fe5f99940d471d, type: 3}
+--- !u!65 &-4445588442502511881
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3333834906003118352}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0141779445, y: 0.015890362, z: 0.010424196}
+  m_Center: {x: 0.0000000018626451, y: 0.035608694, z: 0.000050287472}
