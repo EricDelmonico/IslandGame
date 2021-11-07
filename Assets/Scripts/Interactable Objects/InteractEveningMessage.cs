@@ -26,6 +26,7 @@ public class InteractEveningMessage : InteractableBase
         {
             textPos.text = data.eveningNote.text;
             notePanel.SetActive(true);
+            Time.timeScale = 0;
 
             base.Interacted();
         }

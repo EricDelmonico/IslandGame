@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     {
         if (messagePanel.activeSelf)
         {
+            Time.timeScale = 1;
             messagePanel.SetActive(false);
             gameManager.currentObjective.completed = true;
             Cursor.visible = false;
