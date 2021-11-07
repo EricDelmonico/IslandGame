@@ -15,4 +15,9 @@ MonoBehaviour:
   day: 7
   morningNote: {fileID: 4320128610647932387, guid: 7e5801b5d88f1914c9f61752044907f0, type: 3}
   eveningNote: {fileID: 0}
-  objectives: []
+  objectives:
+  - objectTag: Bottle
+    description: Collect the bottle with the note.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0
