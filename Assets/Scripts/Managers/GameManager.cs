@@ -12,22 +12,64 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector]public DayData.Objective currentObjective;
 
+    [SerializeField] private DayNightCycle dayNightCycleScript;
+    [SerializeField] private GameObject player;
+    [SerializeField] private Camera nightCamera;
+    private Vector3 nightCamOriginalPosition;
+    private Vector3 playerCamOriginalPosition;
+    private Quaternion nightCamOriginalRotation;
+    private Quaternion playerCamOriginalRotation;
+    private float camAnimationSeconds = 3.0f;
+    private float currentCamAnimSeconds = 0;
+
     private int objectiveIndex = 0;
+
+    private bool nightTime;
 
     // Start is called before the first frame update
     void Start()
     {
         currentDayData = dayData[0];
         currentObjective = currentDayData.objectives[objectiveIndex];
+        nightTime = false;
+        nightCamOriginalPosition = nightCamera.transform.position;
+        nightCamOriginalRotation = nightCamera.transform.rotation;
         //currentDayData.objectives[0].completed = true;
+    }
+
+    public static float InOut(float k)
+    {
+        if ((k *= 2f) < 1f) return 0.5f * k * k;
+        return -0.5f * ((k -= 1f) * (k - 2f) - 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
         //currentDayData = dayData[currentDay - 1];
-       
-        
+
+        if (nightTime && currentCamAnimSeconds < 1)
+        {
+            currentCamAnimSeconds += Time.deltaTime / camAnimationSeconds;
+            float easedSeconds = InOut(currentCamAnimSeconds);
+            nightCamera.transform.position = Vector3.Lerp(playerCamOriginalPosition, nightCamOriginalPosition, easedSeconds);
+            nightCamera.transform.rotation = Quaternion.Lerp(playerCamOriginalRotation, nightCamOriginalRotation, easedSeconds);
+        }
+        else if (!nightTime && currentCamAnimSeconds > 0)
+        {
+            currentCamAnimSeconds -= Time.deltaTime / (camAnimationSeconds / 3);
+            float easedSeconds = InOut(currentCamAnimSeconds);
+            nightCamera.transform.position = Vector3.Lerp(playerCamOriginalPosition, nightCamOriginalPosition, easedSeconds);
+            nightCamera.transform.rotation = Quaternion.Lerp(playerCamOriginalRotation, nightCamOriginalRotation, easedSeconds);
+        }
+        else if (currentCamAnimSeconds < 1 && !player.activeSelf)
+        {
+            player.SetActive(true);
+            nightCamera.gameObject.SetActive(false);
+        }
+
+        // Do nothing at night
+        if (nightTime) return;
 
         Debug.Log(currentDayData.day);
 
@@ -67,9 +109,33 @@ public class GameManager : MonoBehaviour
             //IncreaseDay();
     }
 
-    public void IncreaseDay()
+    private float dayTimeSpeedUp = 50;
+    private void IncreaseDay()
     {
+        playerCamOriginalPosition = Camera.main.transform.position;
+        playerCamOriginalRotation = Camera.main.transform.rotation;
+        currentCamAnimSeconds = 0;
+
         currentDay++;
+        nightTime = true;
+        player.SetActive(false);
+        nightCamera.gameObject.SetActive(true);
+
+        dayNightCycleScript.dayTime /= dayTimeSpeedUp;
+        dayNightCycleScript.Sunrise += DayNightCycleScript_Sunrise;
+    }
+
+    private void DayNightCycleScript_Sunrise()
+    {
+        dayNightCycleScript.dayTime *= dayTimeSpeedUp;
+        NextDay();
+        nightTime = false;
+
+        dayNightCycleScript.Sunrise -= DayNightCycleScript_Sunrise;
+    }
+
+    private void NextDay()
+    {
         currentDayData = dayData[currentDay - 1];
         currentObjective = currentDayData.objectives[objectiveIndex];
     }

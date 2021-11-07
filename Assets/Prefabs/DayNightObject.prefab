@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5208a8265ebf09f4299b6355673073a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dayTime: 30
+  dayTime: 600
 --- !u!1 &1888419801936254791
 GameObject:
   m_ObjectHideFlags: 0

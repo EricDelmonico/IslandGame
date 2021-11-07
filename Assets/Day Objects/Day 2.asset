@@ -21,3 +21,18 @@ MonoBehaviour:
     amountToCollect: 1
     bottleObjective: 1
     completed: 0
+  - objectTag: Wood
+    description: Collect Wood for Shelter
+    amountToCollect: 3
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Grass
+    description: Collect Grass for Shelter
+    amountToCollect: 5
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Bottle
+    description: Put note in empty bottle.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0
