@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: -6953721840678488827}
   m_Layer: 0
   m_Name: Game Manager
-  m_TagString: Untagged
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,3 +50,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 09b95583ea4456a4d818a0b5efa14f02, type: 2}
   - {fileID: 11400000, guid: 964ff9131a586154d8ba58a7fac40860, type: 2}
   - {fileID: 11400000, guid: 5f82ab3a799d61b48a3a3d6223cbbe5b, type: 2}
+  currentDayData: {fileID: 0}

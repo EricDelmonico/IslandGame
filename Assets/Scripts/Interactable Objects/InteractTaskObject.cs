@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class InteractTaskObject : InteractableBase
 {
-    private GameManager manager;
-    private DayData data;
-
+   
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
-        manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        data = manager.currentDayData;
+        
     }
 
     // Update is called once per frame

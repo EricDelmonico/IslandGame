@@ -8,17 +8,20 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private DayData[] dayData;
 
-    public DayData currentDayData;
+    [HideInInspector] public DayData currentDayData;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentDayData = dayData[0];
     }
 
     // Update is called once per frame
     void Update()
     {
+        //currentDayData = dayData[currentDay - 1];
+        Debug.Log(currentDayData.day);
+
         currentDayData = dayData[currentDay - 1];
     }
 
