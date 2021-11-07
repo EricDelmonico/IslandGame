@@ -22,11 +22,11 @@ public class Interact : MonoBehaviour
     {
         RaycastHit hit;
 
-        if(Physics.Raycast(mainCam.transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
+        if (Physics.Raycast(mainCam.transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
         {
             Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             if (hit.collider.gameObject.tag == "Interactable" && Input.GetKeyDown(KeyCode.E))
-                hit.collider.gameObject.SetActive(false);
+                hit.collider.gameObject.GetComponent<InteractableBase>().Interacted();
         }
         else
             Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * range, Color.red);
