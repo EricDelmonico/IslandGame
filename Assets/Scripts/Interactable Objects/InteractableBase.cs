@@ -15,14 +15,14 @@ public class InteractableBase : MonoBehaviour
         source = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         source.loop = false;
 
-        manager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
-        data = manager.currentDayData;
+        manager = GameObject.FindGameObjectWithTag("GameController")?.GetComponent<GameManager>();
+        data = manager?.currentDayData;
     }
 
     // Update is called once per frame
     protected virtual void Update()
     {
-        if (data != manager.currentDayData)
+        if (manager != null && data != manager.currentDayData)
             data = manager.currentDayData;
     }
 

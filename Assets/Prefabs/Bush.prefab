@@ -629,6 +629,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7964456566664869952}
   - component: {fileID: 4995997524708663442}
+  - component: {fileID: 9185079003011985257}
   m_Layer: 0
   m_Name: Bush
   m_TagString: Untagged
@@ -672,6 +673,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: 70760447f150c864da570638764cef02, type: 3}
   postInteractPrefab: {fileID: 4154414517582895449, guid: be6f7db58f0b60148b47242b2dba34a8, type: 3}
+--- !u!65 &9185079003011985257
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7144851753497660295}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1.1193848}
+  m_Center: {x: 0, y: 0, z: 0.26938307}
 --- !u!1 &7213993324917660649
 GameObject:
   m_ObjectHideFlags: 0
