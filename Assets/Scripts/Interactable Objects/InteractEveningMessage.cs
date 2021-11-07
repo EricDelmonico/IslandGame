@@ -22,10 +22,14 @@ public class InteractEveningMessage : InteractableBase
 
     public override void Interacted()
     {
-        textPos.text = data.eveningNote.text;
-        notePanel.SetActive(true);
-        Cursor.visible = true;
+        if (gameObject.CompareTag(currentObj.objectTag))
+        {
+            textPos.text = data.eveningNote.text;
+            notePanel.SetActive(true);
 
-        base.Interacted();
+            manager.currentObjective.completed = true;
+
+            base.Interacted();
+        }
     }
 }
