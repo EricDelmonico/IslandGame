@@ -13,6 +13,8 @@ TagManager:
   - Bush
   - Bottle
   - Coconut
+  - EmptyBottle
+  - Rock
   layers:
   - Default
   - TransparentFX

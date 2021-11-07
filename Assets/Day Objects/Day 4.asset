@@ -41,7 +41,7 @@ MonoBehaviour:
     amountToCollect: 6
     bottleObjective: 0
     completed: 0
-  - objectTag: Bottle
+  - objectTag: EmptyBottle
     description: Put note in empty bottle.
     amountToCollect: 1
     bottleObjective: 1
