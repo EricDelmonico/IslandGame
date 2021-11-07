@@ -11,6 +11,7 @@ TagManager:
   - Tinder
   - Grass
   - Bush
+  - Bottle
   layers:
   - Default
   - TransparentFX
