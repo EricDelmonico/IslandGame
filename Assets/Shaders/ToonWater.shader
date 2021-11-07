@@ -34,6 +34,7 @@
             // Add just inside the SubShader, below its opening curly brace.
         Tags
         {
+            "RenderPipeline" = "HDRenderPipeline"
             "Queue" = "Transparent"
         }
         Pass
