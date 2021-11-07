@@ -26224,6 +26224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dayTime: 600
+  dayCycles: 0
 --- !u!1 &5342603514796128211
 GameObject:
   m_ObjectHideFlags: 0
@@ -27370,7 +27371,7 @@ GameObject:
   - component: {fileID: 5385465585987281357}
   - component: {fileID: 5294419227837487119}
   m_Layer: 5
-  m_Name: Text
+  m_Name: InteractText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
