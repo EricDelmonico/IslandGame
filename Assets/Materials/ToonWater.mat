@@ -61,11 +61,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _SurfaceDistortion:
         m_Texture: {fileID: 2800000, guid: 82f8914e9a0daff4b91dfcdae369cf10, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 4, y: 4}
         m_Offset: {x: 0, y: 0}
     - _SurfaceNoise:
         m_Texture: {fileID: 2800000, guid: f9d967d8fd5038a459582a8e7d33bd66, type: 3}
-        m_Scale: {x: 1, y: 4}
+        m_Scale: {x: 6, y: 12}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
@@ -90,7 +90,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SurfaceDistortionAmount: 0.27
-    - _SurfaceNoiseCutoff: 0.791
+    - _SurfaceNoiseCutoff: 0.899
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
