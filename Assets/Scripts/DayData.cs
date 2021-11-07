@@ -12,6 +12,7 @@ public class DayData : ScriptableObject
     {
         public string objectTag;
         public int amountToCollect;
+        public bool completed;
     }
 
     public int day;
