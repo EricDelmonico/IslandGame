@@ -15,4 +15,34 @@ MonoBehaviour:
   day: 4
   morningNote: {fileID: 7795075645825698626, guid: 26b27bfee28e0ba40aeb04d572a84bdd, type: 3}
   eveningNote: {fileID: 4962193008849924323, guid: 619fac3d7da4df34c8b3d335f209406d, type: 3}
-  objectives: []
+  objectives:
+  - objectTag: Bottle
+    description: Collect the bottle with the note.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0
+  - objectTag: Wood
+    description: Collect Wood for Fire
+    amountToCollect: 3
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Leaf
+    description: Collect Leaves for Fire
+    amountToCollect: 10
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Tinder
+    description: Collect Tinder for Fire
+    amountToCollect: 5
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Rock
+    description: Collect Rocks for Fire
+    amountToCollect: 6
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Bottle
+    description: Put note in empty bottle.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0

@@ -21,8 +21,8 @@ MonoBehaviour:
     amountToCollect: 1
     bottleObjective: 1
     completed: 0
-  - objectTag: Leaf
-    description: Collect Leaves
+  - objectTag: Berry
+    description: Collect Berries
     amountToCollect: 3
     bottleObjective: 0
     completed: 0
