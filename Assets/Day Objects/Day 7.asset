@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Day 7
   m_EditorClassIdentifier: 
   day: 7
-  morningNote: {fileID: 0}
+  morningNote: {fileID: 4320128610647932387, guid: 7e5801b5d88f1914c9f61752044907f0, type: 3}
   eveningNote: {fileID: 0}
+  objectives: []

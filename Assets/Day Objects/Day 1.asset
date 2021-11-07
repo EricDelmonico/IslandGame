@@ -21,8 +21,13 @@ MonoBehaviour:
     amountToCollect: 1
     bottleObjective: 1
     completed: 0
+  - objectTag: Leaf
+    description: Collect Leaves
+    amountToCollect: 3
+    bottleObjective: 0
+    completed: 0
   - objectTag: Bottle
-    description: Test
+    description: Put note in empty bottle.
     amountToCollect: 1
     bottleObjective: 1
     completed: 0
