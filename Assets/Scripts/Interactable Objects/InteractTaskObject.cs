@@ -23,7 +23,11 @@ public class InteractTaskObject : InteractableBase
         if(gameObject.CompareTag(currentObj.objectTag))
         {
             if (currentObj.amountToCollect > 0)
+            {
                 currentObj.amountToCollect--;
+                manager.currentObjective.amountToCollect = currentObj.amountToCollect;
+            }
+               
 
         }
         base.Interacted();

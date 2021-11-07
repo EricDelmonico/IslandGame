@@ -26,17 +26,24 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         //currentDayData = dayData[currentDay - 1];
-        //Debug.Log(currentDayData.day);
+       
+        
 
-        currentDayData = dayData[currentDay - 1];
+        Debug.Log(currentDayData.day);
 
-        Debug.Log("Index: " + objectiveIndex + ", " + currentObjective.completed);
-        if(currentObjective.completed)
+        //Debug.Log("Index: " + objectiveIndex + ", " + currentObjective.completed);
+        if (currentObjective.completed)
         {
-            if( objectiveIndex < currentDayData.objectives.Length)
-            {
-                objectiveIndex++;
+            objectiveIndex++;
+
+            if ( objectiveIndex < currentDayData.objectives.Length)
+            {               
                 currentObjective = currentDayData.objectives[objectiveIndex];
+            }
+            else
+            {
+                objectiveIndex = 0;
+                IncreaseDay();
             }
         }
         //Update current objective
@@ -54,12 +61,17 @@ public class GameManager : MonoBehaviour
 
         //Change the day once the last objective is completed
         int lastIndex = currentDayData.objectives.Length - 1;
-        Debug.Log("Last index: " + lastIndex);
+        //Debug.Log("Last index: " + lastIndex);
 
-        if (currentDayData.objectives[lastIndex].completed)
-            IncreaseDay();
+        //if (currentDayData.objectives[lastIndex].completed)
+            //IncreaseDay();
     }
 
-    public void IncreaseDay() => currentDay++;
+    public void IncreaseDay()
+    {
+        currentDay++;
+        currentDayData = dayData[currentDay - 1];
+        currentObjective = currentDayData.objectives[objectiveIndex];
+    }
 
 }
