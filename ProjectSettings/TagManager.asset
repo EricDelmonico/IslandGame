@@ -9,6 +9,7 @@ TagManager:
   - Leaf
   - Berry
   - Tinder
+  - Grass
   layers:
   - Default
   - TransparentFX
