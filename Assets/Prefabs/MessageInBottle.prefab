@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a79ed9bf150c9f041a176607331ce09f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 769201a1caf6a2f40a1f5432a3b8ce90, type: 3}
+  clip: {fileID: 8300000, guid: 9a1be1ab0f1962746b8ca79c66f4e63d, type: 3}
   notePanel: {fileID: 0}
   textPos: {fileID: 0}
 --- !u!1001 &5846059741977762160
