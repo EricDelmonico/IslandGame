@@ -5,13 +5,12 @@ using UnityEngine;
 public class InteractableBase : MonoBehaviour
 {
     [SerializeField] protected AudioClip clip;
-    AudioSource source;
+    [SerializeField] protected AudioSource source;
     // Start is called before the first frame update
     protected virtual void Start()
     {
-        source = gameObject.AddComponent<AudioSource>();
+        source = GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>();
         source.loop = false;
-        source.clip = clip;
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class InteractableBase : MonoBehaviour
 
     public virtual void Interacted()
     {
-        source.Play();
+        source.PlayOneShot(clip);
         gameObject.SetActive(false);
     }
 }
