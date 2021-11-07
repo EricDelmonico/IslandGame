@@ -10,6 +10,9 @@ TagManager:
   - Berry
   - Tinder
   - Grass
+  - MorningBottle
+  - EveningBottle
+  - Bottle
   layers:
   - Default
   - TransparentFX

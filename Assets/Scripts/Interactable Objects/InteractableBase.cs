@@ -9,6 +9,7 @@ public class InteractableBase : MonoBehaviour
 
     protected GameManager manager;
     protected DayData data;
+    protected DayData.Objective currentObj;
     // Start is called before the first frame update
     protected virtual void Start()
     {
@@ -24,6 +25,8 @@ public class InteractableBase : MonoBehaviour
     {
         if (data != manager.currentDayData)
             data = manager.currentDayData;
+
+        currentObj = manager.currentObjective;
     }
 
     public virtual void Interacted()
