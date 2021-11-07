@@ -5,7 +5,7 @@ using UnityEngine;
 public class InteractableBase : MonoBehaviour
 {
     [SerializeField] protected AudioClip clip;
-    [SerializeField] protected AudioSource source;
+    protected AudioSource source;
     // Start is called before the first frame update
     protected virtual void Start()
     {
