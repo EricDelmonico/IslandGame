@@ -13,7 +13,7 @@ public class DayNightCycle : MonoBehaviour
     private void Start()
     {
         currentAngle = 0;
-        sun = transform.GetChild(0).gameObject;
+        sun = transform.GetChild(0).GetChild(0).gameObject;
     }
 
     // Update is called once per frame
