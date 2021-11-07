@@ -7,7 +7,7 @@ public class InteractableBase : MonoBehaviour
     [SerializeField] protected AudioClip clip;
     AudioSource source;
     // Start is called before the first frame update
-    public virtual void Start()
+    protected virtual void Start()
     {
         source = gameObject.AddComponent<AudioSource>();
         source.loop = false;
@@ -15,7 +15,7 @@ public class InteractableBase : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
