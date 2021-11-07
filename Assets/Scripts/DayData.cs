@@ -11,7 +11,10 @@ public class DayData : ScriptableObject
     public struct Objective
     {
         public string objectTag;
+        public string description;
         public int amountToCollect;
+
+        public bool bottleObjective;
         public bool completed;
     }
 
