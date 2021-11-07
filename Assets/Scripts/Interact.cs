@@ -9,28 +9,36 @@ public class Interact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.E)) interact = true;
     }
 
+    private bool interact = false;
     private void FixedUpdate()
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(mainCam.transform.position, transform.TransformDirection(Vector3.forward), out hit, range))
+        var origin = mainCam.transform.position;
+        var direction = mainCam.transform.forward;
+        if (Physics.Raycast(origin, direction * range, out hit, range))
         {
-            Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
-            if (hit.collider.gameObject.tag == "Interactable" && Input.GetKeyDown(KeyCode.E))
-                hit.collider.gameObject.GetComponent<InteractableBase>().Interacted();
+            Debug.DrawRay(origin, direction * hit.distance, Color.green);
+            if (interact)
+            {
+                hit.collider.gameObject.GetComponent<InteractableBase>()?.Interacted();
+            }
         }
         else
-            Debug.DrawRay(mainCam.transform.position, transform.TransformDirection(Vector3.forward) * range, Color.red);
+        {
+            Debug.DrawRay(origin, direction * range, Color.red);
+        }
 
+        if (interact) interact = false;
     }
 
 }
