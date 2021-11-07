@@ -12,6 +12,7 @@ TagManager:
   - Grass
   - Bush
   - Bottle
+  - Coconut
   layers:
   - Default
   - TransparentFX

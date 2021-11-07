@@ -21,7 +21,8 @@ public class InteractableUnbrokenScenery : InteractableBase
 
     public override void Interacted()
     {
-        Instantiate(postInteractPrefab, transform.position, transform.rotation);
+        var obj = Instantiate(postInteractPrefab, transform.position, transform.rotation);
+        obj.transform.localScale = transform.localScale;
         base.Interacted();
     }
 }
