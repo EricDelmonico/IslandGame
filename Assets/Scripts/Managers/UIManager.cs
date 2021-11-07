@@ -26,15 +26,19 @@ public class UIManager : MonoBehaviour
 
     public void ClosePanel()
     {
-        messagePanel.SetActive(false);
-        Cursor.visible = false;
+        if (messagePanel.activeSelf)
+        {
+            messagePanel.SetActive(false);
+            gameManager.currentObjective.completed = true;
+            Cursor.visible = false;
+        }
     }
 
     public void UpdateObjectiveText(DayData.Objective obj)
     {
         string newText = "";
 
-        if(!obj.bottleObjective)
+        if (!obj.bottleObjective)
         {
             if (obj.amountToCollect > 0)
                 newText = obj.description + ": " + obj.amountToCollect + " left";

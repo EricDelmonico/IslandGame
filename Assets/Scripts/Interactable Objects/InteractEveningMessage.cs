@@ -27,8 +27,6 @@ public class InteractEveningMessage : InteractableBase
             textPos.text = data.eveningNote.text;
             notePanel.SetActive(true);
 
-            manager.currentObjective.completed = true;
-
             base.Interacted();
         }
     }

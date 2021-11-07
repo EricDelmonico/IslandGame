@@ -28,8 +28,6 @@ public class InteractMorningMessage : InteractableBase
             textPos.text = data.morningNote.text;
             notePanel.SetActive(true);
 
-            manager.currentObjective.completed = true;
-
             //Cursor.lockState = CursorLockMode.Confined;
             //Cursor.visible = true;
         }

@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class DayNightCycle : MonoBehaviour
 {
-    [SerializeField]
-    private float dayTime = 30f;
+    public float dayTime = 3600f;
+    private float previousAngle;
     private float currentAngle;
 
     private GameObject sun;
 
+    public event System.Action Sunrise;
+
     private void Start()
     {
-        currentAngle = 0;
+        currentAngle = 30;
+        previousAngle = currentAngle;
         sun = transform.GetChild(0).GetChild(0).gameObject;
     }
 
@@ -24,6 +27,9 @@ public class DayNightCycle : MonoBehaviour
         currentAngle = (currentAngle + angleStep) % 360.0f;
         sun.GetComponent<Light>().intensity = currentAngle <= 190 ? 1 : 0.01f;
 
+        if (previousAngle < 30 && currentAngle >= 30) Sunrise?.Invoke();
+
         transform.rotation = Quaternion.AngleAxis(currentAngle, transform.right);
+        previousAngle = currentAngle;
     }
 }
