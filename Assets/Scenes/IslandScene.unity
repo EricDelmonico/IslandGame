@@ -18143,6 +18143,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MessageInBottleEvening
       objectReference: {fileID: 0}
+    - target: {fileID: 6560112035434159090, guid: c601ed80ded6a2842a74c84b07e2d4d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6560112035434159091, guid: c601ed80ded6a2842a74c84b07e2d4d5, type: 3}
       propertyPath: textPos
       value: 
@@ -26605,6 +26609,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messagePanel: {fileID: 5769601895625632621}
   currentObjText: {fileID: 5769601894961044198}
+  emptyBottle: {fileID: 173269438}
 --- !u!222 &5769601894138302616
 CanvasRenderer:
   m_ObjectHideFlags: 0
