@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Text currentObjText;
     [SerializeField] private GameObject emptyBottle;
     private GameManager gameManager;
+    [SerializeField] private ChangeScene sceneManager;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +38,11 @@ public class UIManager : MonoBehaviour
             }
             gameManager.currentObjective.completed = true;
             Cursor.visible = false;
+
+            if(gameManager.dayData.Length == gameManager.currentDay)
+            {
+                sceneManager.ChangingScene("EndMenu");
+            }
         }
     }
 

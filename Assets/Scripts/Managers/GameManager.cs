@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int currentDay = 1;
+    public int currentDay = 1;
 
-    [SerializeField] private DayData[] dayData;
+    public DayData[] dayData;
 
     [HideInInspector] public DayData currentDayData;
 
