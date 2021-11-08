@@ -78,8 +78,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "The worst thing you can do is give up. You just have to take it one day
+  m_Text: 'The worst thing you can do is give up. You just have to take it one day
     at a time. Over here, I was able to make a nice shelter from the trees and grass
     and even got some decent food. Your island seems more plentiful, so you should
-    have better luck than I did. I even managed to get a smoke signal going, but
-    I guess you know how that went. \r\n"
+    have better luck than I did. I even managed to get a smoke signal going. I wish
+    I could I thank you in person for trying to save me, but I guess this will have
+    to do. It was unfortunate that the storm hit at the same time.
+
+'
