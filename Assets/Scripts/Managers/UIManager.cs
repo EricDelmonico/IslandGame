@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.E))
             ClosePanel();
 
         UpdateObjectiveText(gameManager.currentObjective);
@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
             }
             gameManager.currentObjective.completed = true;
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
 
             if(gameManager.dayData.Length == gameManager.currentDay)
             {

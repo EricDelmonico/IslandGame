@@ -127,7 +127,6 @@ public class GameManager : MonoBehaviour
 
         currentDay++;
         nightTime = true;
-        Debug.Log(currentDay);
         if (currentDay > 4 && !campfire.activeSelf)
         {
             campfire.SetActive(true);
