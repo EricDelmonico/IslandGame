@@ -20,7 +20,11 @@ public class EndCollectObjective : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!obj.bottleObjective && obj.amountToCollect <= 0)
-            manager.currentObjective.completed = true;
+        if(other.tag == "Player")
+        {
+            if (!obj.bottleObjective && obj.amountToCollect <= 0)
+                manager.currentObjective.completed = true;
+        }
+       
     }
 }
