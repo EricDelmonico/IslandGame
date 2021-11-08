@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour
         nightTime = false;
 
         bottle.SetActive(true);
-        emptyBottle.SetActive(true);
+        emptyBottle.SetActive(false);
         interactText.SetActive(true);
 
         dayNightCycleScript.Sunrise -= DayNightCycleScript_Sunrise;

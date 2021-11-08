@@ -7,6 +7,7 @@ public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject messagePanel;
     [SerializeField] private Text currentObjText;
+    [SerializeField] private GameObject emptyBottle;
     private GameManager gameManager;
 
     // Start is called before the first frame update
@@ -30,6 +31,10 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1;
             messagePanel.SetActive(false);
+            if (gameManager.currentObjective.objectTag == "Bottle")
+            {
+                emptyBottle.SetActive(true);
+            }
             gameManager.currentObjective.completed = true;
             Cursor.visible = false;
         }
