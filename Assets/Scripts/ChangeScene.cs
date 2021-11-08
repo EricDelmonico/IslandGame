@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
+    private void Start()
+    {
+        Cursor.visible = true;
+    }
     public void ChangingScene(string name)
     {
         Debug.Log("Changing");

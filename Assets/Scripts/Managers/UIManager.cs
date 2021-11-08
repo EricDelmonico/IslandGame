@@ -41,6 +41,7 @@ public class UIManager : MonoBehaviour
 
             if(gameManager.dayData.Length == gameManager.currentDay)
             {
+                Cursor.visible = true;
                 sceneManager.ChangingScene("EndMenu");
             }
         }
