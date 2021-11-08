@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera nightCamera;
     [SerializeField] private GameObject bottle;
     [SerializeField] private GameObject emptyBottle;
+    [SerializeField] private GameObject campfire;
     private Vector3 nightCamOriginalPosition;
     private Vector3 playerCamOriginalPosition;
     private Quaternion nightCamOriginalRotation;
@@ -29,11 +30,13 @@ public class GameManager : MonoBehaviour
     private bool nightTime;
 
     private GameObject interactText;
+    private GameObject objectiveText;
 
     // Start is called before the first frame update
     void Start()
     {
         interactText = GameObject.Find("InteractText");
+        objectiveText = GameObject.Find("Objective Text");
         Time.timeScale = 1;
         currentDayData = dayData[0];
         currentObjective = currentDayData.objectives[objectiveIndex];
@@ -71,13 +74,13 @@ public class GameManager : MonoBehaviour
         else if (currentCamAnimSeconds < 1 && !player.activeSelf)
         {
             player.SetActive(true);
+            interactText.SetActive(true);
+            objectiveText.SetActive(true);
             nightCamera.gameObject.SetActive(false);
         }
 
         // Do nothing at night
         if (nightTime) return;
-
-        Debug.Log(currentDayData.day);
 
         //Debug.Log("Index: " + objectiveIndex + ", " + currentObjective.completed);
         if (currentObjective.completed)
@@ -124,9 +127,16 @@ public class GameManager : MonoBehaviour
 
         currentDay++;
         nightTime = true;
+        Debug.Log(currentDay);
+        if (currentDay > 4 && !campfire.activeSelf)
+        {
+            campfire.SetActive(true);
+            dayNightCycleScript.dayCycles = 3;
+        }
         player.SetActive(false);
         nightCamera.gameObject.SetActive(true);
         interactText.SetActive(false);
+        objectiveText.SetActive(false);
 
         dayNightCycleScript.dayTime /= dayTimeSpeedUp;
         dayNightCycleScript.Sunrise += DayNightCycleScript_Sunrise;
@@ -140,7 +150,6 @@ public class GameManager : MonoBehaviour
 
         bottle.SetActive(true);
         emptyBottle.SetActive(false);
-        interactText.SetActive(true);
 
         dayNightCycleScript.Sunrise -= DayNightCycleScript_Sunrise;
     }
