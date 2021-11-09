@@ -15,6 +15,7 @@ TagManager:
   - Coconut
   - EmptyBottle
   - Rock
+  - Tree
   layers:
   - Default
   - TransparentFX

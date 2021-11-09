@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1153412591678322127}
   m_Layer: 0
   m_Name: Palm
-  m_TagString: UnbrokenTree
+  m_TagString: Tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
