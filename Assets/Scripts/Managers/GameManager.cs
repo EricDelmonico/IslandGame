@@ -25,6 +25,9 @@ public class GameManager : MonoBehaviour
     private float camAnimationSeconds = 3.0f;
     private float currentCamAnimSeconds = 0;
 
+    [SerializeField] private AudioSource melancholyMusicSource;
+    [SerializeField] private AudioSource musicSource;
+
     private int objectiveIndex = 0;
 
     private bool nightTime;
@@ -131,6 +134,10 @@ public class GameManager : MonoBehaviour
         {
             campfire.SetActive(true);
             dayNightCycleScript.dayCycles = 3;
+
+            // Transition from old music to new music
+            melancholyMusicSource.Play();
+            StartCoroutine(TransitionMusic());
         }
         player.SetActive(false);
         nightCamera.gameObject.SetActive(true);
@@ -159,4 +166,19 @@ public class GameManager : MonoBehaviour
         currentObjective = currentDayData.objectives[objectiveIndex];
     }
 
+    private IEnumerator TransitionMusic(float currentSeconds = 0)
+    {
+        yield return new WaitForSeconds(Time.deltaTime);
+        currentSeconds += Time.deltaTime;
+        melancholyMusicSource.volume = Mathf.Lerp(0, 1, currentSeconds);
+        musicSource.volume = Mathf.Lerp(1, 0, currentSeconds);
+        if (currentSeconds < 1)
+        {
+            StartCoroutine(TransitionMusic(currentSeconds));
+        }
+        else
+        {
+            musicSource.Stop();
+        }
+    }
 }
