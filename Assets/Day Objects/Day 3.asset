@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68a332078cdb6d5428a30411482d5b93, type: 3}
+  m_Name: Day 3
+  m_EditorClassIdentifier: 
+  day: 3
+  morningNote: {fileID: 8124164183026424614, guid: 152b7a41d4f4e764bbbb6ba488e4a956, type: 3}
+  eveningNote: {fileID: 8089632623183832256, guid: 44071f2070ad7ca4b8a5799901200c7b, type: 3}
+  objectives:
+  - objectTag: Bottle
+    description: Collect the bottle with the note.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0
+  - objectTag: Berry
+    description: Collect Berries
+    amountToCollect: 5
+    bottleObjective: 0
+    completed: 0
+  - objectTag: Coconut
+    description: Collect Coconut
+    amountToCollect: 3
+    bottleObjective: 0
+    completed: 0
+  - objectTag: EmptyBottle
+    description: Put note in empty bottle.
+    amountToCollect: 1
+    bottleObjective: 1
+    completed: 0
