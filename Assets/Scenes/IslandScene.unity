@@ -28947,7 +28947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988db30bd19350a4898acf89f68c7c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentDay: 4
+  currentDay: 1
   dayData:
   - {fileID: 11400000, guid: 3fe965c1446e0e840965466274c4c40d, type: 2}
   - {fileID: 11400000, guid: 3ea19a70b89561e40815b335c96c5ea4, type: 2}
